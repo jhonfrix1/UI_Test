@@ -40,6 +40,13 @@ public class GameObjectToggle
 }
 
 [System.Serializable]
+public class ComponentToggle
+{
+    public Component target;
+    public bool setEnabled;
+}
+
+[System.Serializable]
 public class UIAnimationStep
 {
     public enum TriggerMode { OnStart, OnLoop, OnCall }
@@ -84,14 +91,37 @@ public class UIAnimationStep
     [Header("GameObject Activation/Deactivation")]
     public List<GameObjectToggle> toggleObjects = new();
 
+    [Header("Component Activation/Deactivation")]
+    public List<ComponentToggle> toggleComponents = new();
+
     [HideInInspector] public bool foldout = true;
 
     private Sequence sequence;
 
     public void Play(bool loop = false)
     {
-        if (rectTarget == null && graphicTarget == null && canvasGroupTarget == null && toggleObjects.Count == 0)
+        if (rectTarget == null && graphicTarget == null && canvasGroupTarget == null &&
+            toggleObjects.Count == 0 && toggleComponents.Count == 0)
             return;
+
+        // Apply final values immediately if there's a delay
+        if (delay > 0f)
+        {
+            if (animatePosition && rectTarget != null)
+                rectTarget.anchoredPosition = targetPosition;
+
+            if (animateScale && rectTarget != null)
+                rectTarget.localScale = targetScale;
+
+            if (animateRotation && rectTarget != null)
+                rectTarget.localEulerAngles = targetRotation;
+
+            if (animateColor && graphicTarget != null)
+                graphicTarget.color = targetColor;
+
+            if (animateAlpha && canvasGroupTarget != null)
+                canvasGroupTarget.alpha = targetAlpha;
+        }
 
         sequence?.Kill();
         sequence = DOTween.Sequence();
@@ -138,6 +168,25 @@ public class UIAnimationStep
             if (toggle.target != null)
                 toggle.target.SetActive(toggle.setActive);
         }
+
+        foreach (var toggle in toggleComponents)
+        {
+            if (toggle.target != null)
+            {
+                if (toggle.target is Behaviour b)
+                {
+                    b.enabled = toggle.setEnabled;
+                }
+                else if (toggle.target is Renderer r)
+                {
+                    r.enabled = toggle.setEnabled;
+                }
+                else
+                {
+                    toggle.target.gameObject.SetActive(toggle.setEnabled);
+                }
+            }
+        }
     }
 }
 
@@ -155,14 +204,12 @@ public class MultiUIAnimatorEditor : Editor
     public override void OnInspectorGUI()
     {
         serializedObject.Update();
-
         int indexToRemove = -1;
 
         for (int i = 0; i < animationsProp.arraySize; i++)
         {
             SerializedProperty animProp = animationsProp.GetArrayElementAtIndex(i);
             SerializedProperty foldoutProp = animProp.FindPropertyRelative("foldout");
-
             SerializedProperty nameProp = animProp.FindPropertyRelative("name");
 
             EditorGUILayout.BeginHorizontal();
@@ -221,9 +268,35 @@ public class MultiUIAnimatorEditor : Editor
                     EditorGUILayout.EndHorizontal();
                 }
 
-                if (GUILayout.Button("+ Add Toggle"))
+                if (GUILayout.Button("+ Add GameObject Toggle"))
                 {
                     togglesProp.InsertArrayElementAtIndex(togglesProp.arraySize);
+                }
+                EditorGUI.indentLevel--;
+
+                SerializedProperty componentTogglesProp = animProp.FindPropertyRelative("toggleComponents");
+                EditorGUILayout.LabelField("Component Toggles", EditorStyles.boldLabel);
+                EditorGUI.indentLevel++;
+                for (int j = 0; j < componentTogglesProp.arraySize; j++)
+                {
+                    SerializedProperty toggleProp = componentTogglesProp.GetArrayElementAtIndex(j);
+                    SerializedProperty targetProp = toggleProp.FindPropertyRelative("target");
+                    SerializedProperty setEnabledProp = toggleProp.FindPropertyRelative("setEnabled");
+
+                    EditorGUILayout.BeginHorizontal();
+                    EditorGUILayout.PropertyField(targetProp, GUIContent.none);
+                    EditorGUILayout.PropertyField(setEnabledProp, GUIContent.none, GUILayout.Width(60));
+                    if (GUILayout.Button("X", GUILayout.Width(20)))
+                    {
+                        componentTogglesProp.DeleteArrayElementAtIndex(j);
+                        break;
+                    }
+                    EditorGUILayout.EndHorizontal();
+                }
+
+                if (GUILayout.Button("+ Add Component Toggle"))
+                {
+                    componentTogglesProp.InsertArrayElementAtIndex(componentTogglesProp.arraySize);
                 }
                 EditorGUI.indentLevel--;
 
