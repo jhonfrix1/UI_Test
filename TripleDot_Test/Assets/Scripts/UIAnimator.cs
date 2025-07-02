@@ -4,7 +4,6 @@ using DG.Tweening;
 using System.Collections.Generic;
 using UnityEditor;
 
-[ExecuteInEditMode]
 public class MultiUIAnimator : MonoBehaviour
 {
     public List<UIAnimationStep> animations = new List<UIAnimationStep>();
