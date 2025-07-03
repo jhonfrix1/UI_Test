@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using System.Collections.Generic;
+using UnityEngine.Events;
 using UnityEditor;
 
 public class MultiUIAnimator : MonoBehaviour
@@ -93,6 +94,9 @@ public class UIAnimationStep
     [Header("Component Activation/Deactivation")]
     public List<ComponentToggle> toggleComponents = new();
 
+    [Header("Events")]
+    public UnityEvent onComplete = new();
+
     [HideInInspector] public bool foldout = true;
 
     private Sequence sequence;
@@ -103,7 +107,6 @@ public class UIAnimationStep
             toggleObjects.Count == 0 && toggleComponents.Count == 0)
             return;
 
-        // Apply final values immediately if there's a delay
         if (delay > 0f)
         {
             if (animatePosition && rectTarget != null)
@@ -160,6 +163,11 @@ public class UIAnimationStep
             sequence.SetLoops(loopCount <= 0 ? -1 : loopCount, loopType);
         }
 
+        sequence.OnComplete(() =>
+        {
+            onComplete?.Invoke();
+        });
+
         sequence.Play();
 
         foreach (var toggle in toggleObjects)
@@ -173,17 +181,11 @@ public class UIAnimationStep
             if (toggle.target != null)
             {
                 if (toggle.target is Behaviour b)
-                {
                     b.enabled = toggle.setEnabled;
-                }
                 else if (toggle.target is Renderer r)
-                {
                     r.enabled = toggle.setEnabled;
-                }
                 else
-                {
                     toggle.target.gameObject.SetActive(toggle.setEnabled);
-                }
             }
         }
     }
@@ -299,6 +301,8 @@ public class MultiUIAnimatorEditor : Editor
                 }
                 EditorGUI.indentLevel--;
 
+                EditorGUILayout.Space();
+                EditorGUILayout.PropertyField(animProp.FindPropertyRelative("onComplete"));
                 EditorGUI.indentLevel--;
                 EditorGUILayout.Space();
             }

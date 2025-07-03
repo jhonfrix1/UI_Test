@@ -148,7 +148,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -50, y: 1.5}
+  m_AnchoredPosition: {x: 50, y: 1.5}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9092335450015969196
@@ -497,7 +497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.09411766, g: 0.34509805, b: 0.65882355, a: 1}
+  m_Color: {r: 0.4233824, g: 0.8584906, b: 0.2713154, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -524,7 +524,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4443078264112932633}
   - component: {fileID: 6261030851008910762}
-  - component: {fileID: 6296998223146274}
+  - component: {fileID: 424805214485682833}
+  - component: {fileID: 318103774217584255}
+  - component: {fileID: 5983852445582070138}
   m_Layer: 5
   m_Name: Toggle
   m_TagString: Untagged
@@ -561,7 +563,216 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8126157858442460055}
   m_CullTransparentMesh: 1
---- !u!114 &6296998223146274
+--- !u!114 &424805214485682833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8126157858442460055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66ae6a8cf71f28a46807579e1d5cd379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animations:
+  - name: OnAnimation
+    triggerMode: 2
+    rectTarget: {fileID: 666679405221359219}
+    graphicTarget: {fileID: 5297693845036438917}
+    canvasGroupTarget: {fileID: 0}
+    animatePosition: 1
+    targetPosition: {x: 50, y: 1.5, z: 0}
+    animateScale: 0
+    targetScale: {x: 0, y: 0, z: 0}
+    animateRotation: 0
+    targetRotation: {x: 0, y: 0, z: 0}
+    animateColor: 1
+    targetColor: {r: 0.42352945, g: 0.8588236, b: 0.27058825, a: 1}
+    animateAlpha: 0
+    targetAlpha: 0
+    duration: 0.15
+    delay: 0
+    loop: 0
+    loopCount: 0
+    loopType: 0
+    easingCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    toggleObjects: []
+    toggleComponents: []
+    onComplete:
+      m_PersistentCalls:
+        m_Calls: []
+    foldout: 1
+  - name: OffAnimation
+    triggerMode: 2
+    rectTarget: {fileID: 666679405221359219}
+    graphicTarget: {fileID: 5297693845036438917}
+    canvasGroupTarget: {fileID: 0}
+    animatePosition: 1
+    targetPosition: {x: -50, y: 1.5, z: 0}
+    animateScale: 0
+    targetScale: {x: 0, y: 0, z: 0}
+    animateRotation: 0
+    targetRotation: {x: 0, y: 0, z: 0}
+    animateColor: 1
+    targetColor: {r: 0.09411766, g: 0.34509805, b: 0.65882355, a: 1}
+    animateAlpha: 0
+    targetAlpha: 0
+    duration: 0.15
+    delay: 0
+    loop: 0
+    loopCount: 0
+    loopType: 0
+    easingCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    toggleObjects: []
+    toggleComponents: []
+    onComplete:
+      m_PersistentCalls:
+        m_Calls: []
+    foldout: 1
+  - name: Animation_Secondary
+    triggerMode: 2
+    rectTarget: {fileID: 666679405221359219}
+    graphicTarget: {fileID: 0}
+    canvasGroupTarget: {fileID: 0}
+    animatePosition: 0
+    targetPosition: {x: -50, y: 1.5, z: 0}
+    animateScale: 1
+    targetScale: {x: 1.4, y: 1, z: 1}
+    animateRotation: 0
+    targetRotation: {x: 0, y: 0, z: 0}
+    animateColor: 0
+    targetColor: {r: 0, g: 0, b: 0, a: 0}
+    animateAlpha: 0
+    targetAlpha: 0
+    duration: 0.15
+    delay: 0
+    loop: 0
+    loopCount: 0
+    loopType: 0
+    easingCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0.0057581663
+        inSlope: -0.4852242
+        outSlope: -0.4852242
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.05177794
+        value: -0.019365743
+        inSlope: 0.89772964
+        outSlope: 0.89772964
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.49873418
+        value: 1
+        inSlope: 0.025589108
+        outSlope: 0.025589108
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.9643576
+        value: -0.03810988
+        inSlope: -0.4993611
+        outSlope: -0.4993611
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0.0057581663
+        inSlope: 1.2307831
+        outSlope: 1.2307831
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    toggleObjects: []
+    toggleComponents: []
+    onComplete:
+      m_PersistentCalls:
+        m_Calls: []
+    foldout: 1
+--- !u!114 &318103774217584255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8126157858442460055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 193f40ad814514d4c98cd8dbcd0f933c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 424805214485682833}
+  onAnimations:
+  - OnAnimation
+  - Animation_Secondary
+  offAnimations:
+  - OffAnimation
+  - Animation_Secondary
+--- !u!114 &5983852445582070138
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -604,4 +815,16 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 318103774217584255}
+        m_TargetAssemblyTypeName: ToggleAnimationController, Assembly-CSharp
+        m_MethodName: ToggleValueChanged
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

@@ -6,7 +6,7 @@ SpriteAtlas:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SettingsIcon_Atlas
+  m_Name: Settings_Atlas
   m_EditorData:
     serializedVersion: 2
     textureSettings:
@@ -23,7 +23,7 @@ SpriteAtlas:
     platformSettings:
     - serializedVersion: 3
       m_BuildTarget: DefaultTexturePlatform
-      m_MaxTextureSize: 4096
+      m_MaxTextureSize: 8192
       m_ResizeAlgorithm: 0
       m_TextureFormat: -1
       m_TextureCompression: 2
@@ -45,22 +45,21 @@ SpriteAtlas:
     secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
-    - {fileID: 2800000, guid: 78240158a5ca098419120fa7e3f401cd, type: 3}
-    - {fileID: 2800000, guid: 12f36f1ade21124429675792fecfe6de, type: 3}
-    - {fileID: 2800000, guid: f2480fb7d58c0224bac0133e16b7960b, type: 3}
-    - {fileID: 2800000, guid: 7fa23e8ee66b3f344a1e38503beacc5a, type: 3}
-    - {fileID: 2800000, guid: 9f3e236d40a376d4cae314211279f624, type: 3}
-    - {fileID: 2800000, guid: 65e2ba2d4308aeb448eacd63ac537d26, type: 3}
-    - {fileID: 2800000, guid: e4d67d3dc2108bd47a2405c25506a192, type: 3}
-    - {fileID: 2800000, guid: d1b430d07ed5eb54a8ca8eedfd8a3330, type: 3}
+    - {fileID: 102900000, guid: 170371092392bfd47a0fc462e7f31f4c, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
     packedSpriteRenderDataKeys:
     - d1b430d07ed5eb54a8ca8eedfd8a3330: 21300000
+    - 6d81c251fae4d364fa6dca802ea5b2d4: 21300000
+    - fa813bc5a6907104fa50a3543c21915a: 21300000
+    - aac73016c0084324ebc66e82d83878c1: 21300000
+    - c5313296074c2bf4f93d27c1006c8869: 21300000
     - f2480fb7d58c0224bac0133e16b7960b: 21300000
     - 78240158a5ca098419120fa7e3f401cd: 21300000
     - 12f36f1ade21124429675792fecfe6de: 21300000
+    - 8fda49bb8010cc649a500aa321e8838d: 21300000
+    - 88595c7cd77f589459db5b79564a9911: 21300000
     - 65e2ba2d4308aeb448eacd63ac537d26: 21300000
     - e4d67d3dc2108bd47a2405c25506a192: 21300000
     - 9f3e236d40a376d4cae314211279f624: 21300000
@@ -68,18 +67,30 @@ SpriteAtlas:
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: d1b430d07ed5eb54a8ca8eedfd8a3330, type: 3}
+  - {fileID: 21300000, guid: 6d81c251fae4d364fa6dca802ea5b2d4, type: 3}
+  - {fileID: 21300000, guid: fa813bc5a6907104fa50a3543c21915a, type: 3}
+  - {fileID: 21300000, guid: aac73016c0084324ebc66e82d83878c1, type: 3}
+  - {fileID: 21300000, guid: c5313296074c2bf4f93d27c1006c8869, type: 3}
   - {fileID: 21300000, guid: f2480fb7d58c0224bac0133e16b7960b, type: 3}
   - {fileID: 21300000, guid: 78240158a5ca098419120fa7e3f401cd, type: 3}
   - {fileID: 21300000, guid: 12f36f1ade21124429675792fecfe6de, type: 3}
+  - {fileID: 21300000, guid: 8fda49bb8010cc649a500aa321e8838d, type: 3}
+  - {fileID: 21300000, guid: 88595c7cd77f589459db5b79564a9911, type: 3}
   - {fileID: 21300000, guid: 65e2ba2d4308aeb448eacd63ac537d26, type: 3}
   - {fileID: 21300000, guid: e4d67d3dc2108bd47a2405c25506a192, type: 3}
   - {fileID: 21300000, guid: 9f3e236d40a376d4cae314211279f624, type: 3}
   - {fileID: 21300000, guid: 7fa23e8ee66b3f344a1e38503beacc5a, type: 3}
   m_PackedSpriteNamesToIndex:
   - Vibration_Icon
+  - Popup_BG
+  - Green_Button
+  - Footer_BG
+  - Tittle_BG
   - Close_Button
   - Arroy_Icon
   - Circle_Icon
+  - Settings_BG
+  - Blue_Button
   - Notifications_Icon
   - Sound_Icon
   - Music_Icon

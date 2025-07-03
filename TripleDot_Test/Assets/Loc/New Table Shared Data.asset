@@ -14,7 +14,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TableCollectionName: New Table
   m_TableCollectionNameGuidString: 70559be12e48ec24591dcf06be73a8a8
-  m_Entries: []
+  m_Entries:
+  - m_Id: 14398758912
+    m_Key: Settings_Sound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3436434923520
+    m_Key: Settings_Music
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3506005843968
+    m_Key: Settings_Vibration
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3609936502784
+    m_Key: Settings_Notifications
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3746721144832
+    m_Key: Settings_Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 295530940571648
+    m_Key: MenuBar_Shop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 295582090108928
+    m_Key: MenuBar_Home
+    m_Metadata:
+      m_Items: []
+  - m_Id: 295636083384320
+    m_Key: MenuBar_Book
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
